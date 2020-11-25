@@ -1,4 +1,7 @@
-# hasatellitetracker
+# Home Assistant Custom Component Tracking Satellites in Home Assistant
+
+<a target="_blank" href="https://www.buymeacoffee.com/djtimca"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy me a coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;"></a> [![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg?style=for-the-badge)](https://github.com/custom-components/hacs)
+
 Using the N2YO API, this Home Assistant integration provides visible satellite passes (general) and to add specific satellites for monitoring.
 
 You will need to register for an API Key at <https://n2yo.com/api/>.
