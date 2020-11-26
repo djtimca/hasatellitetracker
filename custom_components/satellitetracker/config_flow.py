@@ -25,6 +25,8 @@ from .const import (
     DEFAULT_MIN_VISIBILITY, 
     DEFAULT_POLLING_INTERVAL,
     CONF_SATELLITE,
+    CONF_MIN_ALERT,
+    DEFAULT_MIN_ALERT,
 )
 
 _LOGGER = logging.getLogger(__name__)
@@ -260,6 +262,12 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                             CONF_MIN_VISIBILITY,
                             default=self.config_entry.options.get(
                                 CONF_MIN_VISIBILITY, DEFAULT_MIN_VISIBILITY
+                            ),
+                        ):int,
+                        vol.Optional(
+                            CONF_MIN_ALERT,
+                            default=self.config_entry.options.get(
+                                CONF_MIN_ALERT, DEFAULT_MIN_ALERT
                             ),
                         ):int,
                     }

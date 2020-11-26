@@ -43,7 +43,8 @@
           "data": {
             "scan_interval": "Enter your polling interval in seconds.",
             "radius": "Enter the radius for your overhead location sensors.",
-            "min_visibility": "Enter the minimum visibility time for satellite passes in seconds."
+            "min_visibility": "Enter the minimum visibility time for satellite passes in seconds.",
+            "min_alert": "Enter the minimum degrees for pass alerts."
           }
         }
       }

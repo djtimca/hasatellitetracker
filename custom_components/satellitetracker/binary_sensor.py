@@ -15,7 +15,15 @@ from homeassistant.components.sensor import ENTITY_ID_FORMAT
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
 from . import N2YOSatelliteCoordinator
-from .const import ATTR_IDENTIFIERS, ATTR_MANUFACTURER, ATTR_MODEL, DOMAIN, COORDINATOR
+from .const import (
+    ATTR_IDENTIFIERS, 
+    ATTR_MANUFACTURER, 
+    ATTR_MODEL, 
+    DOMAIN, 
+    COORDINATOR,
+    CONF_MIN_ALERT,
+    DEFAULT_MIN_ALERT,
+)
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -26,6 +34,7 @@ async def async_setup_entry(hass, entry, async_add_entities):
     coordinator = hass.data[DOMAIN][entry.entry_id][COORDINATOR]
     sensors = []
     conf = entry.data
+    min_alert = entry.options.get(CONF_MIN_ALERT, DEFAULT_MIN_ALERT)                                 
 
     sensors.append(
         SatellitePassSensor(
@@ -33,6 +42,7 @@ async def async_setup_entry(hass, entry, async_add_entities):
             latitude=conf["latitude"],
             longitude=conf["longitude"],
             elevation=conf["elevation"],
+            min_alert=min_alert,
         )
     )
 
@@ -48,6 +58,7 @@ class SatellitePassSensor(CoordinatorEntity, BinarySensorEntity):
         latitude: float,
         longitude: float,
         elevation: float,
+        min_alert: int,
         ):
         """Initialize Entities."""
 
@@ -56,6 +67,7 @@ class SatellitePassSensor(CoordinatorEntity, BinarySensorEntity):
         self._name = f"{self.coordinator._name} 10 Minute Pass Warning"
         self._unique_id = f"{self.coordinator._satellite}_{latitude}_{longitude}_{elevation}"
         self._state = None
+        self._min_alert = min_alert
         self.attrs = {}
 
     @property
@@ -105,7 +117,9 @@ class SatellitePassSensor(CoordinatorEntity, BinarySensorEntity):
 
         if next_pass["startUTC"] < (
             time.time() + (10 * 60)
-        ) and next_pass["startUTC"] > (time.time()):
+        ) and next_pass["startUTC"] > (
+            time.time()
+        ) and next_pass["maxEl"] > self._min_alert:
             return True
         else:
             return False
