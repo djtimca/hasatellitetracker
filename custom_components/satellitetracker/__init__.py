@@ -37,7 +37,7 @@ CONFIG_SCHEMA = vol.Schema({DOMAIN: vol.Schema({})}, extra=vol.ALLOW_EXTRA)
 _LOGGER = logging.getLogger(__name__)
 
 LOCATION_PLATFORMS = ["sensor"]
-SATELLITE_PLATFORMS = ["sensor", "device_tracker"]
+SATELLITE_PLATFORMS = ["sensor", "device_tracker", "binary_sensor"]
 
 async def async_setup(hass: HomeAssistant, config: dict):
     """Set up the satellite tracker component."""

@@ -36,6 +36,11 @@ class SatelliteTracker(CoordinatorEntity, TrackerEntity):
         return f"{self.coordinator._satellite}_location"
 
     @property
+    def available(self) -> bool:
+        """Return if entity is available."""
+        return self.coordinator.last_update_success
+
+    @property
     def icon(self):
         """Return the icon for the sensor."""
         return "mdi:satellite-variant"

@@ -90,6 +90,11 @@ class SatelliteSensor(CoordinatorEntity):
         return self._icon
 
     @property
+    def available(self) -> bool:
+        """Return if entity is available."""
+        return self.coordinator.last_update_success
+
+    @property
     def unit_of_measurement(self):
         """Return the UoM for this entity."""
         return TIME_SECONDS
@@ -175,11 +180,16 @@ class LocationSensor(CoordinatorEntity):
     def unique_id(self):
         """Return the unique ID for this entity."""
         return self._unique_id
-        
+
     @property
     def name(self):
         """Return the name of this entity."""
         return self._name
+
+    @property
+    def available(self) -> bool:
+        """Return if entity is available."""
+        return self.coordinator.last_update_success
 
     @property
     def icon(self):

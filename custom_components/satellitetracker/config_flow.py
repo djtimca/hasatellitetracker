@@ -1,4 +1,4 @@
-"""Config flow for SpaceX Launches and Starman."""
+"""Config flow for Satellite Tracker integration."""
 from n2yoasync import N2YO, N2YOSatelliteCategory, AuthenticationError
 import voluptuous as vol
 import aiohttp
