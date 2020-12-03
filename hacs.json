@@ -1,0 +1,7 @@
+{
+    "name": "Satellite Tracker (N2YO)",
+    "country": "CA",
+    "domains": ["binary_sensor", "device_tracker", "sensor"],
+    "homeassistant": "0.115.0",
+    "iot_class": ["Cloud Polling"]
+}
