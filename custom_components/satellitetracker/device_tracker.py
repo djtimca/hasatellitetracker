@@ -1,6 +1,6 @@
 """Support for tracking a Satellite as device tracker."""
 
-from homeassistant.components.device_tracker.config_entry import TrackerEntity
+from homeassistant.components.device_tracker import TrackerEntity
 from homeassistant.components.device_tracker.const import DOMAIN as DEVICE_TRACKER
 from homeassistant.components.device_tracker.const import SourceType
 from homeassistant.const import ATTR_NAME
