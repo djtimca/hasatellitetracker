@@ -1,18 +1,15 @@
 {
     "domain": "satellitetracker",
     "name": "Satellite Tracker (N2YO)",
+    "codeowners": ["@djtimca"],
     "config_flow": true,
-    "documentation": "https://github.com/djtimca/hasatellitetracker",
-    "issue_tracker": "https://github.com/djtimca/hasatellitetracker/issues",
-    "requirements": [
-      "n2yoasync==0.0.6"
-    ],
-    "ssdp": [],
-    "zeroconf": [],
-    "homekit": {},
     "dependencies": [],
-    "codeowners": [
-      "@djtimca"
-    ],
-    "version": "0.0.13"
-  }
+    "documentation": "https://github.com/djtimca/hasatellitetracker",
+    "homekit": {},
+    "iot_class": "cloud_polling",
+    "issue_tracker": "https://github.com/djtimca/hasatellitetracker/issues",
+    "requirements": ["n2yoasync==0.0.6"],
+    "ssdp": [],
+    "version": "0.0.14",
+    "zeroconf": []
+}
